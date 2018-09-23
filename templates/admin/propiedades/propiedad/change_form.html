@@ -1,0 +1,10 @@
+{% extends "admin/change_form.html" %}
+{% block inline_field_sets %}
+{% for inline_admin_formset in inline_admin_formsets %}
+    {% include inline_admin_formset.opts.template %}
+{% endfor %}
+<form method="post" action="../upload/" enctype="multipart/form-data">{% csrf_token %}
+    <input type="file" name="files" multiple/>
+   <!-- <input type="submit" value="Upload"/>-->
+</form>
+{% endblock %}

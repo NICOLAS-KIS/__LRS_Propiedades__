@@ -1,0 +1,39 @@
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="../" class="navbar-brand">LRS Propiedades</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            {% url 'home' as home %}
+            {% url 'contacto' as contacto %}
+            {% url 'about' as about %}
+
+
+            <li {% if request.path == home %} class="nav-item active" {% endif %}>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li {% if request.path == contacto %} class="nav-item active" {% endif %}>
+                <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+            <li {% if request.path == about %} class="nav-item active" {% endif %}>
+                <a class="nav-link" href="{% url 'about' %}">Sobre Nosotros</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+

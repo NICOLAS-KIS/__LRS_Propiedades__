@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<link rel="stylesheet" href = '{% static "css/custom.min.css" %}'/>
+
+<form method="GET" action="">
+    <label for="featured">Format</label>
+    <select name="featured" value="{{ request.GET.featured.value }}">
+        <option value="Todos" >Todos</option>
+        <option value="V" >Venta</option>
+        <option value="A" >Alquiler</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Imagenes</th>
+              <th scope="col">Descripcion1</th>
+              <th scope="col">Descripcion2</th>
+              <th scope="col">Descripcion3</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block contenttwo %}
+    <div class="container">
+    {% for propiedad in propiedades %}
+        <div class="list-group">
+        {% cycle 'list-group-item list-group-item-action flex-column align-items-start' 'list-group-item list-group-item-action' as rowcolors silent %}
+            <a href="{% url "detalle" id=propiedad.id %}" class="{{ rowcolors }}">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="row" width="300">
+                            <img  src="{{ propiedad.image.url }}" style="width:100%; height:auto; margin:0 auto;">
+                            <!--style="height: 200px; width: 100%; display:block; "-->
+                        </th>
+                        <td>{{ propiedad.titulo }}
+                            <br>
+                            {{ propiedad.ciudad }}
+                            <br>
+                            {{ propiedad.localidad }}
+                            <br>
+                            {{ propiedad.calle }}
+                            <br>
+                            Ambientes: {{ propiedad.ambientes }}
+                            <br>
+                            Superficie Cubierta: {{ propiedad.superficie_cubierta }} mts2
+                            <br>
+                            Precio: ${{ propiedad.precio }}
+                            <br>
+                            Alquiler: ${{ propiedad.expensas }}
+                            <br>
+                            <br>
+                            {{ propiedad.descripcion }}
+                        </td>
+                        <td></td>
+                        <td>lala</td>
+                    </tr>
+                </tbody>
+            </table>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

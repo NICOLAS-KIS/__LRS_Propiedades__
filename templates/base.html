@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>LRS Propiedades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href = '{% static "css/bootstrap.css" %}' media="screen">
+    <link rel="stylesheet" href = '{% static "css/custom.min.css" %}'/>
+
+</head>
+<body class style>
+
+{% include 'navbar.html' %}
+<div class="container">
+	{% block content %}
+	{% endblock %}
+	{% block contenttwo %}
+	{% endblock %}
+
+	{% block footer %}
+	{% endblock%}
+
+	{% block extrajs %}
+	{% endblock %}
+</div>
+
+
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/popper.min.js" %}'></script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/custom.js" %}'></script>
+
+</body>
+
+
+</html>
